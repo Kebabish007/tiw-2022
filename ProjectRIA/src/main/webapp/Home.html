@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" media="all"
+	href="CSS/style.css"/>
+<script src="JS/homeManagement.js" charset="utf-8" defer></script>
+<script src="JS/utils.js" charset="utf-8" defer></script>
+</head>
+
+
+<body class="text-center">
+
+	<div class="fixed-top" align="right">
+		<a href="Logout">Logout</a>
+	</div>
+	
+	
+	<div >
+    <h1>Bank Home Page</h1>
+	<p id="user_message"></p>
+		
+	
+	<br>
+	<p>	
+		Here are your accounts.
+	</p>
+	</div>
+	
+	
+	<div class="row">
+	<div class="container">
+	<div class="col-xs-6">
+	<h2 class="sub-header">Accounts List</h2>
+	<div class="table-responsive">	
+		<table class="table table-striped" id ="account_table">
+		  	<thead class="thead-dark">
+		  			<tr>
+						<th class="col-md-1" scope="col">Account number</th>
+						<th class="col-md-2" scope="col">Balance</th>
+						<th class="col-md-3" scope="col">Details</th>
+					</tr>
+			</thead>
+			<tbody id ="account_body">
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div class="col-xs-6">
+	<div id="id_alert"></div>	
+	<div class="table-responsive">	
+	<h2 class="sub-header" id="transaction_title">Transactions table</h2>
+	<table class="table table-striped" id="transaction_table">
+  		<thead class="thead-dark" id="transaction_header">
+			<tr>
+				<th class="col-md-1" scope="col">From/To</th>
+				<th class="col-md-2" scope="col">Details</th>
+				<th class="col-md-3" scope="col">Transaction ID</th>
+			</tr>
+		</thead>
+		<tbody id="transaction_body">
+			
+		</tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+	<p>Click here to create a new account.</p>
+	<form action="#" >
+			<input id="new_account_button" class="btn btn-primary" type="button" value="Create">
+		</form>
+		<p id="new_account_error"></p>
+	<br>
+	
+	<div>
+		<p>Complete the form to add coins to your accounts.</p>
+		<form action="#" class="form-signin border">
+		<fieldset>
+				<label for ="number">Deposit(money): </label>
+				<input id="number" type="number" name="number" placeholder = "Insert the amount of money" class="form-control" required step="0.01"/>
+
+				<label for ="id_account">Id account: </label>
+					<select name  = "id_account" id="id_account" class="form-control">
+					</select>
+		</fieldset>
+				<br>
+				<input id="add_money_button" type="button" value="Add" class="btn btn-lg btn-primary btn-block">	
+		</form>
+		<p id="add_money_error"></p>
+	</div>
+	
+	<form action="#" class="form-signin border">
+		<fieldset>		
+				Complete a transaction from account number <a id="id_account_source" /></a>
+				<br>
+				<label for ="idUser">Recipient User Code:</label>
+				<input type="text" id ="id_user" name="id_user" class="form-control" list ="user_datalist" required placeholder="Insert username recipient"/>
+					<datalist id="user_datalist">		
+					</datalist>
+				<label for ="id_account_destination">Recipient bank account:</label>
+				<input type="number" id ="id_account_destination" name="id_account_destination" list ="account_datalist" class="form-control" min=0 required placeholder="Insert bank account recipient"/>
+						<datalist id="account_datalist">		
+					</datalist>
+				
+				<label for ="description">Reason for payment:</label>
+				<input type="text" name="description" id="description" class="form-control" required placeholder="Insert a description"/>
+				<label for =amount>Amount: </label>
+				<input type="number" name="amount" min=0 id ="amount" class="form-control" required step="0.01" placeholder="Insert an amount"/>	 
+		</fieldset>
+				<br>
+				<input id ="send_money_button" type="button" value="Send" class="btn btn-lg btn-primary btn-block">
+		</form>
+		<img id="img_correct" src="images/check_icon.png" class="rounded mx-auto d-block" alt="bank">
+		<img id="img_error" src="images/error_icon.png" class="rounded mx-auto d-block" alt="bank">
+		<p id = "transaction_error"></p>
+		<div id="transaction_details">
+		
+		</div>
+		<p id="contact_message"></p>
+		<div id ="div_button_contact">
+			<input type="button" id="add_contact" value="Add Contact" class="btn btn-lg btn-primary" >
+		</div>
+</body>
+</html>

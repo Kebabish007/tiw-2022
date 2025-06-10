@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/style.css" th:href="@{/CSS/style.css}" />
+</head>
+<body class="text-center">
+
+	<div class="fixed-top" align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	<div>
+	
+	<div >
+    <h1>Bank Home Page</h1>
+	<p th:text="${'Welcome ' + session.user.name + ' ' + session.user.surname}"></p>
+		
+	
+	<br>
+	<p>	
+		Here are your accounts.
+	</p>
+	</div>
+	
+	
+	<div>	
+	<table class="table">
+  	<thead class="thead-dark">
+  			<tr>
+				<th scope="col">Account number</th>
+				<th scope="col">Balance</th>
+				<th scope="col">Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="a : ${accounts}">
+				<td th:text="${a.id}"></td>
+				<td> <span th:text="${a.balance}"></span>&euro;</td>
+					<td>
+					<a th:href="@{/GetAccountDetails(accountid=${a.id})}" class="btn btn-primary" role="button" >Click Here</a>
+						
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	
+	
+	<p>Click here to create a new account.</p>
+	<form th:action="@{/CreateNewAccount}" method="POST" >
+			<input class="btn btn-primary" type="submit" value="Create">
+		</form>
+	<br>
+
+	<div>
+		<p>Complete the form to add coins to your accounts.</p>
+		<form action="#" th:action="@{/AddMoney}" method="POST" class="form-signin border">
+			<fieldset>
+				<label for ="number">Deposit(money): </label>
+				<input type="number" name="number" placeholder = "Insert the amount of money" class="form-control" required step="0.01"/>
+				
+				<label for ="id_account">Id account: </label>
+					<select name="idAccount" class="form-control">
+  						<option th:each="a : ${accounts}" th:value="${a.id}"
+								th:text="${a.id}">account</option>
+					</select>
+				<br>	
+				<input type="submit" value="Add"  class="btn btn-lg btn-primary btn-block">
+			</fieldset>
+		</form>
+	</div>
+	</div>
+</body>
+</html>

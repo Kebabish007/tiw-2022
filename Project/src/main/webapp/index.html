@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+
+<link rel="stylesheet" type="text/css"
+	href="CSS/style.css" th:href="@{/CSS/style.css}" />
+</head>
+<body class="text-center">
+
+
+<img src="images/bank_icon.png" class="rounded mx-auto d-block" alt="bank">
+
+  <h1 class="h3 mb-3 font-weight-normal">Welcome to the bank login</h1>	
+  <form action="CheckCredentials" method="POST" class="form-signin border">
+  		<label for ="username">Username:</label>
+		<input type="text" name="username" class="form-control" required placeholder="Enter your username"> <br>
+		<label for ="password">Password:</label>
+		<input type="password" name="password" class="form-control" required placeholder="Enter your password"><br>
+		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+		<p th:text=" ${msg}"></p>
+	<p>
+		Please click <a href="/Project/GoToRegistration">here</a> if not already registered
+	</p>
+	</form>  
+</body>
+</html>

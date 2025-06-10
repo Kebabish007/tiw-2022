@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/style.css" th:href="@{/CSS/style.css}" />
+</head>
+<body class="text-center">
+
+
+
+
+
+	<div class="fixed-top" align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	<div>
+	<img src="images/error_icon.png" class="rounded mx-auto d-block" alt="bank">
+	
+	<h1>Error page</h1>
+	<p th:text="${'Dear ' + session.user.name + ' ' + session.user.surname}"></p>
+	
+	<p>An error occurred while processing your request.</p>
+	
+	
+	<p>Error in the account:  <a th:text=" ${sourceAccount}"></a></p>
+
+	
+	<p th:text=" ${error}"></p>
+	
+	</div>
+	
+	<br>
+	
+	<a th:href="@{/GetAccountDetails(accountid=${sourceAccount})}"  class="btn btn-primary" role="button" >Back</a>
+	
+
+</body>
+</html>

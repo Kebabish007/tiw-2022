@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" media="all"
+	href="CSS/style.css" />
+<script src="JS/registrationManagement.js" charset="utf-8" defer></script>
+<script src="JS/utils.js" charset="utf-8" defer></script>
+</head>
+<body class="text-center">	
+		<form action="#" class="form-signin border">
+		<h1 class="h3 mb-3 font-weight-normal">Complete the form to create a new account</h1>
+			<fieldset>
+				<label for ="username">Username:</label>
+				<input type="text" name="username" class="form-control" required placeholder="Enter your username"/>
+				<label for ="password">Password:</label>
+				<input type="password" name="password" class="form-control" required placeholder="Choose your password"/>
+				<label for ="passwordRepeat">Confirm password:</label>
+				<input type="password" name="passwordRepeat" class="form-control" required placeholder="Confirm password"/>
+				<label for ="email">Email:</label>
+				<input type="email" name="email" class="form-control" required placeholder="Insert an email"/>
+				<label for ="name">Name:</label>
+				<input type="text" name="name" class="form-control" required placeholder="Insert your name"/>
+				<label for ="surname">Surname:</label>
+				<input type="text" name="surname" class="form-control" required placeholder="Insert your surname"/>
+				<br>
+				<br>
+				<input id= "registration_button" type="button" class="btn btn-lg btn-primary btn-block" value="Register" >
+				<p id="registration_error"></p>
+			</fieldset>
+		</form>
+		<br>
+		<br>
+		<a href="index.html" class="btn btn-primary" role="button">Login page</a>
+		
+
+</body>
+</html>

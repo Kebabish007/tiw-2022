@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Confirm</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/style.css" th:href="@{/CSS/style.css}" />
+</head>
+<body class="text-center">
+
+
+
+
+
+	<div class="fixed-top" align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	
+
+	<img src="images/check_icon.png" class="rounded mx-auto d-block" alt="bank">
+	
+	<br>
+	<h1>
+	The transaction has been successfully completed.
+	</h1>
+	<p>	
+		Here are the details of the transaction.
+	</p>
+	<div>
+	
+	
+	<p>Reason: <a th:text=" ${description}"></a></p>
+	<p>Amount: <a th:text=" ${amount}"></a></p>
+	<br>
+	<br>
+	
+	<h1>from:</h1>
+	
+	
+	<p>Your money before the transaction:  <a th:text=" ${moneyBeforeTransactionS}"></a></p>
+	<p>Your money after the transaction:  <a th:text=" ${moneyAfterTransactionS}"></a></p>
+	<p>Your account used:  <a th:text=" ${sourceAccount}"></a></p>
+	<p>Your username:  <a th:text=" ${sourceUser}"></a></p>
+	
+	<br>
+	
+	<h1>to:</h1>
+	<p>Money before the transaction:  <a th:text=" ${moneyBeforeTransactionD}"></a></p>
+	<p>Money after the transaction:  <a th:text=" ${moneyAfterTransactionD}"></a></p>
+	<p>Recipient User Code: <a th:text=" ${destinationUser}"></a></p>
+	<p>Recipient bank account: <a th:text=" ${destinationId}"></a></p>
+
+	<br>
+	<br>
+	
+	</div>
+	
+	<a th:href="@{/GetAccountDetails(accountid=${sourceAccount})} " class="btn btn-primary" role="button" >Back</a>
+	
+
+</body>
+</html>
